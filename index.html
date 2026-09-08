@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James Achame | Helping Businesses Scale Smarter Through Automation &amp; Paid Marketing</title>
+<meta name="description" content="James Achame is a creative strategist and AI automation specialist. I build AI-powered lead systems in GoHighLevel: landing pages that filter out bad leads, pipelines and SMS/email follow-up that never drops, and tracking that shows what actually works. Book a free consultation.">
+<link rel="canonical" href="https://example.com/">
+
+<link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<meta name="theme-color" content="#4A1513">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="James Achame | Helping Businesses Scale Smarter Through Automation &amp; Paid Marketing">
+<meta property="og:description" content="Landing pages that filter out bad leads, GHL pipelines and follow-up that never drops, and tracking that shows what actually works.">
+<meta property="og:image" content="/assets/og/og-image.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — one neutral base, one accent.
+   The accent appears ONLY on CTAs, eyebrows, icons, links and
+   the highlighted compare column. Nowhere else.
+   ============================================================ */
+:root{
+  /* BRAND: deep maroon + warm gold. Gold is the accent on dark grounds,
+     maroon is the accent on light grounds — that keeps every CTA legible
+     and never puts pale gold behind white text. */
+  --bg:#FBF8F5;        /* warm cream page                   */
+  --paper:#FFFFFF;     /* cards, logo strip                 */
+  --ink:#1E1512;       /* headlines (warm near-black)       */
+  --ink-2:#54453F;     /* body copy                         */
+  --muted:#6B5A53;     /* captions, labels                  */
+  --line:#EAE2DA;      /* hairlines                         */
+  --accent:#8C2A22;    /* CTAs, eyebrows, icons on light    */
+  --acc-dk:#6B1E18;    /* CTA hover                         */
+  --tint:#FBEDE9;      /* icon chips, highlighted table col */
+  --gold:#E8BC72;      /* accent on dark grounds            */
+  --gold-dk:#D9A64F;   /* gold CTA hover                    */
+  --gold-dp:#8A5E14;   /* gold as text on light (readable)  */
+  --dark:#4A1513;      /* dark section base                 */
+  --dark-2:#7A241F;    /* dark section gradient partner     */
+  --on-dark:#F3E9E4;   /* body copy on dark                 */
+  --on-dark-2:#C9B3AA; /* muted copy on dark                */
+  --ok:#12A87A;        /* checkmarks in the compare table   */
+
+  --r-ctl:12px;        /* radius: controls */
+  --r-card:16px;       /* radius: cards    */
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  font-synthesis:none;
+  background:var(--bg);
+  color:var(--ink-2);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{color:var(--ink);line-height:1.15;letter-spacing:-.02em;text-wrap:balance;}
+.lp-ic{display:inline-block;vertical-align:middle;flex:none;}
+.lp-vh{position:absolute!important;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+/* ---------- shared layout ---------- */
+.lp-section{padding:4.5rem 1.5rem;border-top:1px solid var(--line);}
+.lp-inner{max-width:1120px;margin:0 auto;}
+.lp-narrow{max-width:820px;margin:0 auto;}
+.lp-head{text-align:center;max-width:680px;margin:0 auto 3rem;}
+.lp-eyebrow{
+  font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.75rem;
+}
+.lp-h2{font-size:clamp(1.6rem,3.1vw,2.25rem);font-weight:800;margin-bottom:.85rem;}
+.lp-sub{font-size:17px;line-height:1.65;color:var(--muted);text-wrap:balance;}
+
+/* ---------- buttons ---------- */
+.lp-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:17px 36px;border-radius:var(--r-ctl);border:none;
+  background:var(--accent);color:#fff;
+  font-family:inherit;font-size:17px;font-weight:700;letter-spacing:.01em;
+  white-space:nowrap;cursor:pointer;
+  box-shadow:0 2px 6px rgba(74,21,19,.18),0 10px 24px -6px rgba(140,42,34,.45);
+  transition:background .15s ease,transform .12s ease,box-shadow .15s ease;
+}
+.lp-btn:hover{
+  background:var(--acc-dk);transform:translateY(-2px);
+  box-shadow:0 4px 10px rgba(74,21,19,.22),0 16px 32px -8px rgba(140,42,34,.55);
+}
+.lp-btn:active{transform:translateY(0);box-shadow:0 2px 6px rgba(74,21,19,.2);}
+.lp-btn svg{width:17px;height:17px;transition:transform .15s ease;}
+.lp-btn:hover svg{transform:translateX(3px);}
+
+/* keyboard focus stays visible on both grounds */
+.lp-btn:focus-visible,.lp-nav-links a.lp-nav-cta:focus-visible,.lp-cal-facade:focus-visible{
+  outline:3px solid var(--gold);outline-offset:3px;
+}
+.lp-btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:15px 28px;border-radius:var(--r-ctl);
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  font-size:16px;font-weight:700;white-space:nowrap;
+  transition:border-color .15s ease;
+}
+.lp-btn-ghost:hover{border-color:var(--ink);}
+
+/* reusable in-section CTA block */
+.lp-cta{text-align:center;margin-top:3.25rem;}
+.lp-cta-line{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:1.1rem;text-wrap:balance;}
+.lp-cta-note{font-size:13.5px;color:var(--muted);margin-top:.9rem;}
+
+/* ---------- social proof: stars, hero review card, CTA trust badge ---------- */
+.lp-stars{display:inline-flex;gap:2px;flex-shrink:0;}
+.lp-stars svg{width:14px;height:14px;fill:var(--gold);}
+
+/* hero review card — sits under the value bullets */
+.lp-hero-review{
+  margin:0;padding:1rem 1.15rem;max-width:34em;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(232,188,114,.28);
+  border-left:3px solid var(--gold);
+  border-radius:10px;
+}
+.lp-hero-review blockquote{
+  margin:.55rem 0 .7rem;font-size:15px;line-height:1.6;color:var(--on-dark);
+}
+.lp-hero-review blockquote b{color:#fff;font-weight:700;}
+/* client logo inside the review card. The supplied file is light type on a
+   dark ground, so it sits in a slightly darker chip rather than floating. */
+.lp-review-logo{
+  display:inline-flex;align-items:center;justify-content:center;flex:none;
+  padding:6px 9px;border-radius:8px;
+  background:rgba(0,0,0,.28);border:1px solid rgba(232,188,114,.22);
+}
+.lp-review-logo img{height:34px;width:auto;max-width:120px;object-fit:contain;}
+.lp-review-logo-fb{
+  display:none;font-size:12px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gold);white-space:nowrap;
+}
+.lp-hero-review-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.lp-hero-review-score{font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.02em;}
+.lp-hero-review-by{
+  display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--on-dark-2);
+}
+.lp-hero-review-by b{color:#fff;font-size:13px;font-weight:700;}
+.lp-verified{display:inline-flex;align-items:center;gap:4px;color:var(--gold);font-weight:700;}
+.lp-verified svg{width:13px;height:13px;flex-shrink:0;}
+
+/* compact trust badge that sits under every CTA button */
+.lp-trust{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  flex-wrap:wrap;margin-top:.9rem;text-align:center;
+  font-size:13px;line-height:1.45;color:var(--muted);
+}
+.lp-trust b{color:var(--ink);font-weight:700;}
+.lp-hero-actions + .lp-trust{margin-top:1.1rem;}
+.lp-hero .lp-trust,.lp-dark .lp-trust,.lp-book .lp-trust{color:var(--on-dark-2);}
+.lp-hero .lp-trust b,.lp-dark .lp-trust b,.lp-book .lp-trust b{color:#fff;}
+
+
+/* ---------- nav ---------- */
+.lp-nav{background:var(--dark);}
+.lp-nav-in{
+  max-width:1120px;margin:0 auto;padding:14px 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.lp-brand{display:flex;align-items:center;gap:12px;min-width:0;}
+.lp-mono{
+  width:38px;height:38px;border-radius:50%;background:var(--bg);color:var(--dark);
+  display:flex;align-items:center;justify-content:center;flex:none;
+  font-size:14px;font-weight:800;letter-spacing:.02em;
+}
+.lp-brand-tx{
+  display:flex;flex-direction:column;min-width:0;
+  border-left:1px solid rgba(243,233,228,.28);padding-left:12px;
+}
+.lp-brand b{font-size:16px;font-weight:700;color:#fff;letter-spacing:.11em;white-space:nowrap;text-transform:uppercase;}
+.lp-brand-sub{font-size:9.5px;color:var(--on-dark-2);white-space:nowrap;letter-spacing:.17em;text-transform:uppercase;margin-top:3px;}
+.lp-nav-links{display:flex;align-items:center;gap:26px;}
+.lp-nav-links a{font-size:14.5px;font-weight:600;color:var(--on-dark);}
+.lp-nav-links a:hover{color:var(--gold);}
+.lp-nav-links a.lp-nav-cta{
+  padding:10px 20px;border-radius:999px;background:var(--gold);color:var(--dark);
+  font-size:14px;font-weight:700;white-space:nowrap;
+  box-shadow:0 2px 10px -2px rgba(232,188,114,.55);
+  transition:background .15s ease,box-shadow .15s ease;
+}
+.lp-nav-links a.lp-nav-cta:hover{background:var(--gold-dk);color:var(--dark);box-shadow:0 4px 16px -2px rgba(232,188,114,.7);}
+
+/* ---------- A: hero ---------- */
+.lp-hero{
+  padding:3rem 1.5rem 4.25rem;color:var(--on-dark);
+  background:linear-gradient(150deg,var(--dark-2) 0%,var(--dark) 55%,#3A100E 100%);
+}
+.lp-hero h1{color:#fff;}
+.lp-hero .lp-eyebrow{color:var(--gold);line-height:1.5;letter-spacing:.11em;text-wrap:balance;}
+/* role badges, echoing the brand banner */
+.lp-hero .lp-btn{background:var(--gold);color:var(--dark);}
+.lp-hero .lp-btn:hover{background:var(--gold-dk);}
+.lp-hero .lp-btn-ghost{background:transparent;border-color:rgba(243,233,228,.35);color:#fff;}
+.lp-hero .lp-btn-ghost:hover{border-color:var(--gold);background:rgba(255,255,255,.06);}
+.lp-hero-grid{
+  max-width:1120px;margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:56px;align-items:center;
+}
+.lp-hero h1{font-size:clamp(2.05rem,4.3vw,3.1rem);font-weight:800;line-height:1.08;margin-bottom:1.1rem;}
+.lp-hero h1 em{font-style:italic;color:var(--gold);}
+.lp-hero-pts{list-style:none;display:flex;flex-direction:column;gap:18px;margin-bottom:2rem;}
+.lp-hero-pts li{display:flex;gap:14px;align-items:flex-start;}
+.lp-pt-ic{
+  width:40px;height:40px;border-radius:10px;background:rgba(232,188,114,.14);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;flex:none;
+}
+.lp-pt-ic svg{width:20px;height:20px;}
+.lp-pt-tx{font-size:15px;line-height:1.5;color:var(--on-dark-2);padding-top:2px;}
+.lp-pt-tx b{display:block;font-size:16.5px;font-weight:700;color:#fff;margin-bottom:1px;}
+.lp-hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.lp-hero-note{margin-top:1.1rem;font-size:13.5px;color:var(--on-dark-2);}
+.lp-hero-media-col{display:flex;flex-direction:column;}
+.lp-hero-media-col .lp-hero-actions{margin-top:1.6rem;justify-content:center;}
+.lp-hero-media-col .lp-hero-note{text-align:center;}
+.lp-hero-media{
+  border:1px solid rgba(243,233,228,.22);border-radius:var(--r-card);overflow:hidden;background:rgba(255,255,255,.05);
+}
+.lp-hero-media img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;transform:scaleX(-1);}
+/* graceful fallback when the photo file isn't in place yet */
+.lp-media-ph{
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  aspect-ratio:4/5;background:rgba(232,188,114,.1);color:var(--gold);
+  font-size:13.5px;font-weight:700;text-align:center;padding:1.5rem;
+}
+.lp-media-ph small{display:block;font-weight:400;color:var(--on-dark-2);font-size:12px;}
+
+/* ---------- trust strip ---------- */
+.lp-strip{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.lp-strip-in{max-width:1120px;margin:0 auto;padding:1.85rem 1.5rem;text-align:center;}
+.lp-strip-lbl{
+  font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1.1rem;
+}
+.lp-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;}
+.lp-chip{
+  font-size:13.5px;font-weight:600;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px;white-space:nowrap;
+}
+/* logo marquee — infinite scroll so a long stack list stays readable in one
+   row instead of wrapping into a wall. Transform-only animation (compositor
+   cheap), pauses on hover/focus, and collapses to a static wrapped row when
+   the visitor prefers reduced motion. */
+.lp-marquee{position:relative;overflow:hidden;padding:4px 0;}
+.lp-marquee::before,.lp-marquee::after{
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+}
+.lp-marquee::before{left:0;background:linear-gradient(90deg,var(--paper),rgba(255,255,255,0));}
+.lp-marquee::after{right:0;background:linear-gradient(270deg,var(--paper),rgba(255,255,255,0));}
+.lp-track{
+  --gap:54px;
+  display:flex;align-items:center;gap:var(--gap);width:max-content;
+  animation:lp-scroll 55s linear infinite;
+}
+.lp-track-clone{display:contents;}
+.lp-marquee:hover .lp-track,
+.lp-marquee:focus-within .lp-track{animation-play-state:paused;}
+@keyframes lp-scroll{from{transform:translateX(0);}to{transform:translateX(calc(-50% - (var(--gap) / 2)));}}
+
+.lp-logo{display:inline-flex;align-items:center;flex:none;}
+.lp-logo img{
+  height:36px;width:auto;max-width:170px;object-fit:contain;
+  opacity:.85;transition:opacity .15s ease,transform .15s ease;
+}
+.lp-logo:hover img{opacity:1;transform:scale(1.06);}
+.lp-logo-fb{
+  display:none;
+  font-size:14px;font-weight:600;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:999px;padding:7px 15px;white-space:nowrap;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .lp-marquee{overflow-x:auto;}
+  .lp-marquee::before,.lp-marquee::after{display:none;}
+  .lp-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;gap:26px 42px;}
+  .lp-track-clone{display:none;}
+}
+@media (max-width:640px){
+  .lp-track{--gap:38px;}
+  .lp-logo img{height:30px;max-width:140px;}
+  .lp-marquee::before,.lp-marquee::after{width:44px;}
+}
+
+
+/* ---------- trust strip ---------- */
+.lp-strip{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.lp-strip-in{max-width:1120px;margin:0 auto;padding:1.85rem 1.5rem;text-align:center;}
+.lp-strip-lbl{
+  font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1.1rem;
+}
+.lp-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;}
+.lp-chip{
+  font-size:13.5px;font-weight:600;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px;white-space:nowrap;
+}
+/* logo strip — greyscale by default so 15 different brand palettes don't fight
+   the one-accent rule; colour returns on hover. Each logo degrades to a text
+   chip if its file isn't in place yet, so the strip is never broken. */
+.lp-logos{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:18px 32px;min-height:24px;
+}
+.lp-logo{display:inline-flex;align-items:center;}
+.lp-logo img{
+  height:24px;width:auto;max-width:132px;object-fit:contain;
+  filter:grayscale(1);opacity:.6;
+  transition:filter .15s ease,opacity .15s ease;
+}
+.lp-logo:hover img{filter:none;opacity:1;}
+.lp-logo-fb-on{display:inline-flex!important;}
+.lp-logo-fb{
+  display:none;
+  font-size:13.5px;font-weight:600;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px;white-space:nowrap;
+}
+.lp-strip-note{margin-top:1.15rem;font-size:13.5px;color:var(--muted);text-wrap:balance;}
+.lp-strip-note b{color:var(--ink);font-weight:700;}
+
+/* ---------- T: transformation ---------- */
+.lp-steps{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  position:relative;margin-top:.5rem;
+}
+.lp-steps::before{
+  content:'';position:absolute;top:26px;
+  left:calc(16.66% + 30px);right:calc(16.66% + 30px);
+  height:1px;background:var(--line);z-index:0;
+}
+.lp-step{text-align:center;padding:0 1.5rem;}
+.lp-step-n{
+  width:52px;height:52px;border-radius:50%;
+  background:var(--paper);border:1px solid var(--line);color:var(--ink);
+  font-size:19px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.15rem;position:relative;z-index:1;
+}
+.lp-step:last-child .lp-step-n{background:var(--accent);border-color:var(--accent);color:#fff;}
+.lp-step h3{font-size:17.5px;font-weight:700;margin-bottom:.45rem;}
+.lp-step p{font-size:15px;line-height:1.6;color:var(--muted);}
+.lp-step-meta{
+  display:inline-flex;align-items:center;gap:6px;margin-top:.7rem;
+  font-size:12.5px;font-weight:700;color:var(--accent);
+}
+.lp-step-meta svg{width:13px;height:13px;}
+
+/* ---------- I: benefits + capabilities ---------- */
+.lp-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;}
+.lp-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.lp-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:1.6rem;
+}
+.lp-card-ic{
+  width:42px;height:42px;border-radius:10px;background:var(--tint);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1rem;
+}
+.lp-card-ic svg{width:21px;height:21px;}
+.lp-card h3{font-size:16.5px;font-weight:700;margin-bottom:.4rem;}
+.lp-card p{font-size:15px;line-height:1.6;color:var(--muted);}
+.lp-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:.9rem;}
+.lp-tag{
+  font-size:12px;font-weight:600;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:3px 10px;
+}
+.lp-sub-head{margin:4rem auto 2.5rem;}
+
+/* ---------- Framework (4 step cards + ATIDCOA) ---------- */
+.lp-fw{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;}
+.lp-fw-card{
+  position:relative;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:1.6rem 1.5rem;
+}
+.lp-fw-badge{
+  position:absolute;top:-16px;right:-14px;
+  width:38px;height:38px;border-radius:50%;
+  background:var(--accent);color:#fff;
+  font-size:14.5px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 18px -6px rgba(140,42,34,.55);
+}
+.lp-fw-ic{
+  width:46px;height:46px;border-radius:12px;background:var(--tint);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.35rem;
+}
+.lp-fw-ic svg{width:23px;height:23px;}
+.lp-fw-step{
+  display:block;font-size:11.5px;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:.45rem;
+}
+.lp-fw-card h3{font-size:19px;font-weight:800;line-height:1.22;margin-bottom:.7rem;}
+.lp-fw-card p{font-size:15px;line-height:1.62;color:var(--muted);}
+.lp-fw-card p + p{margin-top:.55rem;}
+
+.lp-atid-box{
+  margin-top:1.5rem;background:var(--paper);
+  border:1px solid var(--line);border-radius:var(--r-card);padding:1.6rem 1.75rem;
+}
+.lp-atid-hd{
+  font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.3rem;
+}
+.lp-atid-box > p{font-size:15px;line-height:1.6;color:var(--muted);}
+.lp-atid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:9px 2rem;
+  margin-top:1.15rem;padding-top:1.15rem;border-top:1px solid var(--line);
+  list-style:none;
+}
+.lp-atid li{
+  display:grid;grid-template-columns:26px 1fr;align-items:baseline;gap:10px;
+  font-size:14.5px;line-height:1.5;color:var(--muted);
+}
+.lp-atid b{
+  display:flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:7px;
+  background:var(--tint);color:var(--accent);
+  font-size:13px;font-weight:800;
+}
+.lp-atid span strong{color:var(--ink);font-weight:700;}
+
+/* ---------- D: work (dark) ---------- */
+.lp-dark{background:linear-gradient(150deg,var(--dark-2) 0%,var(--dark) 60%,#3A100E 100%);border-top:none;}
+.lp-dark .lp-btn,.lp-book .lp-btn,.lp-hero .lp-btn{
+  background:var(--gold);color:var(--dark);
+  box-shadow:0 2px 6px rgba(0,0,0,.3),0 12px 28px -8px rgba(232,188,114,.5);
+}
+.lp-dark .lp-btn:hover,.lp-book .lp-btn:hover,.lp-hero .lp-btn:hover{
+  box-shadow:0 4px 12px rgba(0,0,0,.34),0 18px 38px -10px rgba(232,188,114,.62);
+}
+.lp-dark .lp-btn:hover,.lp-book .lp-btn:hover,.lp-hero .lp-btn:hover{background:var(--gold-dk);}
+.lp-dark .lp-h2,.lp-book .lp-h2{color:#fff;}
+.lp-dark .lp-sub,.lp-book .lp-sub{color:var(--on-dark-2);}
+.lp-dark .lp-eyebrow,.lp-book .lp-eyebrow{color:var(--gold);}
+.lp-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+  max-width:820px;margin:0 auto 3.5rem;text-align:center;
+}
+.lp-stat .n{font-size:clamp(1.75rem,3.4vw,2.4rem);font-weight:800;color:#fff;line-height:1.1;}
+.lp-stat .l{font-size:13.5px;color:var(--on-dark-2);margin-top:.35rem;text-wrap:balance;}
+.lp-proj{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.11);
+  border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column;
+}
+.lp-proj-img{aspect-ratio:16/10;background:rgba(255,255,255,.05);position:relative;}
+.lp-proj-img img{width:100%;height:100%;object-fit:cover;}
+.lp-proj-ph{
+  display:none;align-items:center;justify-content:center;width:100%;height:100%;
+  font-size:12.5px;font-weight:700;color:var(--on-dark-2);text-align:center;padding:1rem;
+}
+.lp-proj-body{padding:1.35rem 1.4rem 1.5rem;display:flex;flex-direction:column;flex:1;}
+.lp-proj h3{font-size:16.5px;font-weight:700;color:#fff;margin-bottom:.35rem;}
+.lp-proj p{font-size:14.5px;line-height:1.6;color:var(--on-dark-2);}
+.lp-proj .lp-card-tags{margin-top:.85rem;}
+.lp-proj .lp-tag{color:var(--on-dark-2);border-color:rgba(255,255,255,.16);}
+.lp-proj-res{
+  margin-top:1.05rem;padding-top:.9rem;border-top:1px solid rgba(255,255,255,.11);
+  font-size:14px;font-weight:700;color:var(--gold);
+}
+.lp-proj-res a{text-decoration:underline;text-underline-offset:2px;}
+.lp-proj-res a:hover{color:#fff;}
+.lp-dark .lp-cta-line{color:#fff;}
+.lp-dark .lp-cta-note{color:var(--on-dark-2);}
+
+/* ---------- C: compare ---------- */
+.lp-cmp{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;max-width:1000px;margin:0 auto;}
+.lp-cmp-c{
+  padding:15px 16px;font-size:14.5px;line-height:1.45;
+  border-bottom:1px solid var(--line);display:flex;align-items:center;
+}
+.lp-cmp-h{font-weight:700;font-size:14px;color:var(--ink);justify-content:center;text-align:center;}
+.lp-cmp-h:first-child{
+  justify-content:flex-start;color:var(--muted);font-size:11.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+.lp-cmp-f{font-weight:600;color:var(--ink);}
+.lp-cmp-v{justify-content:center;text-align:center;color:var(--muted);}
+.lp-cmp-us{background:var(--tint);justify-content:center;text-align:center;color:var(--ink);font-weight:600;}
+.lp-cmp-us.lp-cmp-h{background:var(--accent);color:#fff;border-radius:var(--r-ctl) var(--r-ctl) 0 0;border-bottom-color:var(--accent);}
+.lp-cmp-us-last{border-radius:0 0 var(--r-ctl) var(--r-ctl);border-bottom-color:transparent!important;}
+.lp-yes{width:19px;height:19px;color:var(--ok);}
+.lp-no{width:17px;height:17px;color:#C2C7CF;}
+.lp-cmp-m{display:none;}
+
+/* ---------- O: FAQ ---------- */
+.lp-faq{border-top:1px solid var(--line);}
+.lp-faq details{border-bottom:1px solid var(--line);}
+.lp-faq summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:19px 4px;font-size:16.5px;font-weight:700;color:var(--ink);
+}
+.lp-faq summary::-webkit-details-marker{display:none;}
+.lp-faq summary:hover{color:var(--accent);}
+.lp-plus{
+  flex:none;width:22px;height:22px;border-radius:50%;border:1px solid var(--accent);position:relative;
+  transition:transform .18s ease;
+}
+.lp-plus::before,.lp-plus::after{content:'';position:absolute;background:var(--accent);top:50%;left:50%;}
+.lp-plus::before{width:9px;height:1.5px;transform:translate(-50%,-50%);}
+.lp-plus::after{width:1.5px;height:9px;transform:translate(-50%,-50%);}
+.lp-faq details[open] .lp-plus{transform:rotate(45deg);}
+.lp-faq details p{padding:0 40px 20px 4px;font-size:15.5px;line-height:1.7;color:var(--muted);}
+
+/* ---------- A: booking ---------- */
+.lp-book{
+  background:linear-gradient(150deg,var(--dark-2) 0%,var(--dark) 60%,#3A100E 100%);
+  border-top:none;text-align:center;
+}
+.lp-cal{
+  max-width:780px;margin:2.5rem auto 0;
+  background:var(--paper);border-radius:var(--r-card);overflow:hidden;text-align:left;
+  box-shadow:0 8px 20px rgba(0,0,0,.28),0 28px 60px -20px rgba(0,0,0,.5);
+}
+.lp-cal-facade{
+  display:block;width:100%;border:none;background:var(--paper);cursor:pointer;
+  padding:2.75rem 2rem;text-align:center;font-family:inherit;
+  transition:background .15s ease;
+}
+.lp-cal-facade:hover{background:var(--tint);}
+.lp-cal-ic{
+  width:60px;height:60px;border-radius:50%;background:var(--tint);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 1.1rem;
+}
+.lp-cal-ic svg{width:28px;height:28px;}
+.lp-cal-facade h3{font-size:20px;font-weight:800;margin-bottom:.4rem;}
+.lp-cal-facade p{font-size:15px;color:var(--muted);margin-bottom:1.5rem;}
+.lp-cal-fake{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:16px 36px;border-radius:var(--r-ctl);background:var(--accent);color:#fff;
+  font-size:17px;font-weight:700;
+  box-shadow:0 2px 6px rgba(74,21,19,.18),0 10px 24px -6px rgba(140,42,34,.45);
+  transition:background .15s ease,transform .12s ease,box-shadow .15s ease;
+}
+.lp-cal-facade:hover .lp-cal-fake{
+  background:var(--acc-dk);transform:translateY(-2px);
+  box-shadow:0 4px 10px rgba(74,21,19,.22),0 16px 32px -8px rgba(140,42,34,.55);
+}
+.lp-cal-facade:hover .lp-cal-fake svg{transform:translateX(3px);}
+.lp-cal-fake svg{width:17px;height:17px;transition:transform .15s ease;}
+.lp-cal iframe{display:block;width:100%;height:720px;border:0;}
+.lp-book-alt{margin-top:1.5rem;font-size:14.5px;color:var(--on-dark-2);}
+.lp-book-alt a{color:var(--gold);font-weight:700;text-decoration:underline;text-underline-offset:2px;}
+
+/* ---------- footer ---------- */
+.lp-foot{background:#3A100E;border-top:1px solid rgba(243,233,228,.14);padding:1.9rem 1.5rem;}
+.lp-foot-in{
+  max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:13px;color:var(--on-dark-2);
+}
+.lp-foot a{color:var(--on-dark-2);}
+.lp-foot a:hover{color:#fff;}
+.lp-foot-links{display:flex;gap:18px;flex-wrap:wrap;}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:960px){
+  .lp-hero{padding:2rem 1.25rem 3rem;}
+  .lp-hero-grid{grid-template-columns:1fr;gap:34px;}
+  .lp-hero-media-col{max-width:400px;margin:0 auto;width:100%;}
+  .lp-hero-media img,.lp-media-ph{aspect-ratio:16/10;}
+
+  /* single column: centre the hero as one axis, but keep the bullet and
+     review copy ranged left so long lines stay easy to read */
+  .lp-hero-copy{text-align:center;}
+  .lp-hero h1{text-wrap:balance;}
+  .lp-hero-pts{max-width:430px;margin-left:auto;margin-right:auto;text-align:left;}
+  .lp-hero-review{max-width:520px;margin-left:auto;margin-right:auto;text-align:left;}
+  .lp-nav-links a:not(.lp-nav-cta){display:none;}
+
+  /* steps become a vertical timeline: circle left, copy right */
+  .lp-steps{grid-template-columns:1fr;gap:0;}
+  .lp-steps::before{display:none;}
+  .lp-step{
+    display:grid;grid-template-columns:52px 1fr;grid-template-rows:auto auto;
+    column-gap:18px;text-align:left;padding:0 0 2rem;position:relative;
+  }
+  .lp-step:last-child{padding-bottom:0;}
+  .lp-step:not(:last-child)::before{
+    content:'';position:absolute;top:52px;bottom:-4px;left:26px;width:1px;background:var(--line);
+  }
+  .lp-step-n{margin:0;grid-column:1;grid-row:1 / span 3;}
+  .lp-step h3{grid-column:2;grid-row:1;margin-top:.55rem;}
+  .lp-step p{grid-column:2;grid-row:2;}
+  .lp-step-meta{grid-column:2;grid-row:3;}
+
+  .lp-grid-3{grid-template-columns:repeat(2,1fr);}
+  .lp-fw{grid-template-columns:repeat(2,1fr);gap:1.5rem 1.25rem;}
+
+  /* compare: swap the 4-column table for a compact 3-column one */
+  .lp-cmp{display:none;}
+  .lp-cmp-m{display:grid;grid-template-columns:1.35fr 1fr 1fr;max-width:560px;margin:0 auto;}
+}
+@media (max-width:640px){
+  .lp-section{padding:3.5rem 1.25rem;}
+  .lp-head{margin-bottom:2.25rem;}
+  .lp-grid-2,.lp-grid-3{grid-template-columns:1fr;}
+  .lp-fw{grid-template-columns:1fr;gap:1.5rem;}
+  .lp-atid{grid-template-columns:1fr;}
+  .lp-atid-box{padding:1.4rem;}
+  .lp-stats{grid-template-columns:1fr;gap:1.5rem;}
+  .lp-hero-actions{flex-direction:column;align-items:stretch;}
+  .lp-hero-actions .lp-btn,.lp-hero-actions .lp-btn-ghost{width:100%;}
+  .lp-brand-sub{display:none;}
+  .lp-cal-facade{padding:2.25rem 1.25rem;}
+  .lp-cal iframe{height:900px;}
+  .lp-foot-in{justify-content:center;text-align:center;}
+  .lp-cmp-c{padding:12px 8px;font-size:13px;}
+  .lp-cmp-h{font-size:12.5px;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none!important;animation:none!important;}
+  .lp-btn:hover,.lp-cal-facade:hover .lp-cal-fake{transform:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="lp-nav">
+  <div class="lp-nav-in">
+    <a class="lp-brand" href="#top">
+      <span class="lp-mono" aria-hidden="true">JA</span>
+      <span class="lp-brand-tx">
+        <b>James Achame</b>
+        <span class="lp-brand-sub">AI Automation &middot; Landing Pages &middot; Funnel Strategy</span>
+      </span>
+    </a>
+    <div class="lp-nav-links">
+      <a href="#work">Work</a>
+      <a href="#framework">Framework</a>
+      <a href="#how">How it works</a>
+      <a href="#services">What I build</a>
+      <a class="lp-nav-cta" href="#book">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ A — ATTENTION (hero) ============ -->
+<header class="lp-hero" id="top">
+  <div class="lp-hero-grid">
+    <div class="lp-hero-copy">
+      <p class="lp-eyebrow">AI Automation Specialist &middot; Landing Page Developer &middot; Funnel Strategist</p>
+      <h1>Your best leads are going cold while your team chases the <em>wrong ones</em>.</h1>
+
+      <ul class="lp-hero-pts">
+        <li>
+          <span class="lp-pt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5h18l-7 8.2V20l-4-2.4v-4.9z"/></svg></span>
+          <span class="lp-pt-tx"><b>Only talk to real buyers</b>Qualifying forms score and route every lead, so unqualified ones never hit your calendar.</span>
+        </li>
+        <li>
+          <span class="lp-pt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
+          <span class="lp-pt-tx"><b>Follow-up that never drops</b>GHL pipelines with SMS and email sequences that keep working nights, weekends and holidays.</span>
+        </li>
+        <li>
+          <span class="lp-pt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 6H15M18 8.5v7M8 8v6.5a2 2 0 0 0 2 2h5"/></svg></span>
+          <span class="lp-pt-tx"><b>Everything wired together</b>Your CRM, ads, forms and tools finally talk to each other. No copy-paste, no spreadsheet in between.</span>
+        </li>
+      </ul>
+      <figure class="lp-hero-review">
+        <div class="lp-hero-review-top">
+          <span class="lp-review-logo">
+            <img src="/assets/images/clients/bjand.webp" alt="BJAND &amp; CO." width="680" height="600"
+                 loading="lazy" decoding="async"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+            <span class="lp-review-logo-fb">BJAND &amp; CO.</span>
+          </span>
+          <span class="lp-stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg></span>
+          <span class="lp-hero-review-score">5.0 on Upwork</span>
+        </div>
+        <blockquote>&ldquo;Working with James has been an <b>absolute game-changer</b> for my project. He expertly created a <b>full automation system</b>, <b>streamlining every process</b> and <b>saving us valuable time</b> &hellip; <b>professional, detail-oriented</b>, and truly dedicated to <b>delivering results</b>.&rdquo;</blockquote>
+        <figcaption class="lp-hero-review-by">
+          <b>Blair Jan D. &middot; CEO, BJAND &amp; CO.</b> <span>Automation project &middot; Jan 2026</span> <span class="lp-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="8 12 11 15 16 9"/></svg>Verified</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="lp-hero-media-col">
+      <figure class="lp-hero-media">
+        <!-- TODO: replace with your photo or a system diagram.
+             Export WebP at 2x display size (~880x1100), quality 75, keep under 100KB. -->
+        <img src="/assets/images/hero.webp"
+             alt="James Achame, creative strategist and AI automation specialist"
+             width="880" height="1100"
+             fetchpriority="high" decoding="async"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="lp-media-ph">
+          Hero image goes here
+          <small>Drop a WebP at <code>/assets/images/hero.webp</code></small>
+        </figcaption>
+      </figure>
+
+      <div class="lp-hero-actions">
+        <a class="lp-btn" href="#book">
+          Book a free consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <p class="lp-hero-note">30-minute call &middot; No pitch &middot; You leave with a plan either way</p>
+      <p class="lp-trust"><span class="lp-stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg></span> <span><b>5.0 on Upwork</b> &middot; &ldquo;an absolute game-changer&rdquo; &middot; verified client review</span></p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TRUST STRIP ============ -->
+<section class="lp-strip">
+  <div class="lp-strip-in">
+    <p class="lp-strip-lbl">The stack I build on</p>
+    <!-- Logo marquee. Files live in /assets/images/logos/. Any logo whose file is
+         missing or fails to load falls back to a text chip automatically.
+         The track is duplicated so translateX(-50%) loops seamlessly; the second
+         copy is aria-hidden with empty alt so screen readers read each brand once.
+         NOTE: ten sources are 24x24 favicons and are upscaled to 36px here — they
+         will look soft. Replace with SVGs when you can. -->
+    <div class="lp-marquee">
+      <div class="lp-track">
+        <span class="lp-logo">
+          <img src="/assets/images/logos/highlevel.png" alt="GoHighLevel" width="227" height="72" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">GoHighLevel</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/closebot.webp" alt="CloseBot" width="600" height="315" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">CloseBot</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/make.webp" alt="Make.com" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Make.com</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/n8n.webp" alt="n8n" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">n8n</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/zapier.webp" alt="Zapier" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Zapier</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/pabbly.webp" alt="Pabbly" width="524" height="381" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Pabbly</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/supabase.webp" alt="Supabase" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Supabase</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/cloudflarepages.webp" alt="Cloudflare" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Cloudflare</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/vercel.webp" alt="Vercel" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Vercel</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/meta.webp" alt="Meta Ads" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Meta Ads</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/googleads.webp" alt="Google Ads" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Google Ads</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/gtm.png" alt="Google Tag Manager" width="88" height="88" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Google Tag Manager</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/openaigym.webp" alt="OpenAI" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">OpenAI</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/claudecode.webp" alt="Claude" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Claude</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/monday.webp" alt="Monday.com" width="840" height="710" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Monday.com</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/jobber.webp" alt="Jobber" width="200" height="200" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Jobber</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/viktor.webp" alt="Viktor AI" width="400" height="300" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Viktor AI</span>
+        </span>
+        <!-- duplicate set: makes the loop seamless, hidden from assistive tech -->
+        <span class="lp-track-clone" aria-hidden="true">
+        <span class="lp-logo">
+          <img src="/assets/images/logos/highlevel.png" alt="" width="227" height="72" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">GoHighLevel</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/closebot.webp" alt="" width="600" height="315" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">CloseBot</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/make.webp" alt="" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Make.com</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/n8n.webp" alt="" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">n8n</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/zapier.webp" alt="" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Zapier</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/pabbly.webp" alt="" width="524" height="381" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Pabbly</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/supabase.webp" alt="" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Supabase</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/cloudflarepages.webp" alt="" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Cloudflare</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/vercel.webp" alt="" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Vercel</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/meta.webp" alt="" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Meta Ads</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/googleads.webp" alt="" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Google Ads</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/gtm.png" alt="" width="88" height="88" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Google Tag Manager</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/openaigym.webp" alt="" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">OpenAI</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/claudecode.webp" alt="" width="24" height="24" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Claude</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/monday.webp" alt="" width="840" height="710" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Monday.com</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/jobber.webp" alt="" width="200" height="200" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Jobber</span>
+        </span>
+        <span class="lp-logo">
+          <img src="/assets/images/logos/viktor.webp" alt="" width="400" height="300" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="lp-logo-fb">Viktor AI</span>
+        </span>
+        </span>
+      </div>
+    </div>
+    <p class="lp-strip-note">Trained by one of the world&rsquo;s <b>top media buyers and creative strategists</b> in Meta ads, so the systems I build are designed around how paid traffic actually converts.</p>
+  </div>
+</section>
+
+<!-- ============ D — DESIRE (work / proof) ============
+     TODO: every project card below is a placeholder. Replace the title,
+     description, tags, result line and image for each one, then delete any
+     cards you don't need. Screenshots: WebP, 2x display size (~1120x700),
+     quality 75, under 100KB each.
+     ============================================================ -->
+<section class="lp-section lp-dark" id="work">
+  <div class="lp-inner">
+    <div class="lp-head">
+      <p class="lp-eyebrow">Selected work</p>
+      <h2 class="lp-h2">Systems already running in the wild</h2>
+      <p class="lp-sub">Landing pages, automations and integrations built end to end. Here&rsquo;s what they were built to fix.</p>
+    </div>
+
+    <!-- Defensible numbers only: these are counts of real shipped work and a
+         real SLA, not invented percentages. Update as the work grows. -->
+    <div class="lp-stats">
+      <div class="lp-stat"><div class="n">12</div><div class="l">Systems shipped end to end</div></div>
+      <div class="lp-stat"><div class="n">5 min</div><div class="l">Speed-to-lead SLA, tracked and enforced</div></div>
+      <div class="lp-stat"><div class="n">7+</div><div class="l">Platforms wired into one pipeline</div></div>
+    </div>
+
+    <div class="lp-grid-3">
+
+      <!-- PROJECT 1 — LandscapersGrowth funnel, native GHL -->
+      <article class="lp-proj">
+        <div class="lp-proj-img">
+          <img src="/assets/images/work-6.jpg" alt="LandscapersGrowth landing page hero: &lsquo;Book 10-20 exclusive tree removals every week&rsquo; with a qualifying territory-check call to action" width="1120" height="504" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="lp-proj-ph">Screenshot &rarr; /assets/images/work-6.jpg</div>
+        </div>
+        <div class="lp-proj-body">
+          <h3>A landing page that qualifies before it books</h3>
+          <p>A tree-removal lead-gen offer needed a page that sold exclusivity and filtered by territory, without bolting on external hosting or webhooks to maintain.</p>
+          <div class="lp-card-tags"><span class="lp-tag">GHL Funnels</span><span class="lp-tag">GHL Forms</span><span class="lp-tag">Calendars</span><span class="lp-tag">Pipelines</span></div>
+          <div class="lp-proj-res">Result: live at <a href="https://landscapgrowth.com/" target="_blank" rel="noopener">landscapgrowth.com</a> &mdash; leads land straight in the pipeline and trigger follow-up, with nothing external to break.</div>
+        </div>
+      </article>
+
+      <!-- PROJECT 2 — LSG Power Dialer -->
+      <article class="lp-proj">
+        <div class="lp-proj-img">
+          <img src="/assets/images/work-1.jpg" alt="LSG Power Dialer admin dashboard: KPI cards for calls, answer rate, booked appointments, talk time, speed-to-lead and 5-minute SLA" width="1120" height="594" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="lp-proj-ph">Screenshot &rarr; /assets/images/work-1.jpg</div>
+        </div>
+        <div class="lp-proj-body">
+          <h3>Power dialer for GoHighLevel setters</h3>
+          <p>Setters were losing hot leads because nothing surfaced fresh ones fast enough, and calling, tracking and coaching lived in three separate tools.</p>
+          <div class="lp-card-tags"><span class="lp-tag">React</span><span class="lp-tag">Twilio</span><span class="lp-tag">Supabase</span><span class="lp-tag">GHL Marketplace</span></div>
+          <div class="lp-proj-res">Result: leads under five minutes old surface first and get dialled instantly, with a 5-minute SLA dashboard managers can coach from.</div>
+        </div>
+      </article>
+
+      <!-- PROJECT 3 — AI lead qualification bot -->
+      <article class="lp-proj">
+        <div class="lp-proj-img">
+          <img src="/assets/images/work-2.jpg" alt="Conversational AI qualification flow showing service identification, address capture and calendar booking steps" width="1120" height="702" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="lp-proj-ph">Screenshot &rarr; /assets/images/work-2.jpg</div>
+        </div>
+        <div class="lp-proj-body">
+          <h3>AI bot that qualifies and books</h3>
+          <p>Every inbound lead needed a human to work out which service they wanted, capture the address and check whether crews even covered that area.</p>
+          <div class="lp-card-tags"><span class="lp-tag">CloseBot</span><span class="lp-tag">Claude</span><span class="lp-tag">Make.com</span><span class="lp-tag">GoHighLevel</span></div>
+          <div class="lp-proj-res">Result: qualification, zipcode availability check and booking run end to end, with manual intake at zero.</div>
+        </div>
+      </article>
+
+      <!-- PROJECT 4 — AI QA for cancelled appointments -->
+      <article class="lp-proj">
+        <div class="lp-proj-img">
+          <img src="/assets/images/work-3.jpg" alt="AI quality-assurance sheet listing root causes, SOP violations, coaching scripts and win-back strategies per cancelled call" width="1120" height="468" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="lp-proj-ph">Screenshot &rarr; /assets/images/work-3.jpg</div>
+        </div>
+        <div class="lp-proj-body">
+          <h3>AI QA on every cancelled appointment</h3>
+          <p>Cancelled appointments got reviewed by hand, whenever someone had time, against no consistent standard. Most were never reviewed at all.</p>
+          <div class="lp-card-tags"><span class="lp-tag">Google Gemini</span><span class="lp-tag">Make.com</span><span class="lp-tag">GoHighLevel</span><span class="lp-tag">Sheets</span></div>
+          <div class="lp-proj-res">Result: every cancelled call auto-analysed for root cause, SOP breach and win-back odds, with a coaching script written per agent.</div>
+        </div>
+      </article>
+
+      <!-- PROJECT 5 — Jobber x GHL request automation -->
+      <article class="lp-proj">
+        <div class="lp-proj-img">
+          <img src="/assets/images/work-4.jpg" alt="Make.com scenario connecting GoHighLevel bookings to the Jobber API, with client lookup, routing and request archival" width="1120" height="474" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="lp-proj-ph">Screenshot &rarr; /assets/images/work-4.jpg</div>
+        </div>
+        <div class="lp-proj-body">
+          <h3>Jobber and GHL, finally talking</h3>
+          <p>Every booking taken in GoHighLevel had to be re-typed into Jobber as a request, and cancellations were missed entirely.</p>
+          <div class="lp-card-tags"><span class="lp-tag">Jobber API</span><span class="lp-tag">Make.com</span><span class="lp-tag">Custom app</span><span class="lp-tag">OAuth</span></div>
+          <div class="lp-proj-res">Result: bookings create Jobber requests automatically and cancellations archive themselves. No re-typing, nothing stranded.</div>
+        </div>
+      </article>
+
+      <!-- PROJECT 6 — Full GHL build-out -->
+      <article class="lp-proj">
+        <div class="lp-proj-img">
+          <img src="/assets/images/work-5.jpg" alt="GoHighLevel opportunities board with pipeline stages matching the real lead lifecycle" width="1120" height="501" loading="lazy" decoding="async"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="lp-proj-ph">Screenshot &rarr; /assets/images/work-5.jpg</div>
+        </div>
+        <div class="lp-proj-body">
+          <h3>A full GoHighLevel build-out</h3>
+          <p>A tree-removal lead-gen agency was running on scattered forms and calendars, with a pipeline that didn&rsquo;t match how their leads actually behaved.</p>
+          <div class="lp-card-tags"><span class="lp-tag">GoHighLevel</span><span class="lp-tag">Pipelines</span><span class="lp-tag">Funnels</span><span class="lp-tag">Calendars</span></div>
+          <div class="lp-proj-res">Result: capture, qualify, schedule and follow-up running on autopilot in one system their team owns and can edit.</div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- TESTIMONIALS — uncomment and fill in once you have real quotes.
+         Do not ship invented ones.
+    <div class="lp-grid-3" style="margin-top:1.25rem;">
+      <article class="lp-proj"><div class="lp-proj-body">
+        <p>"Client quote goes here."</p>
+        <div class="lp-proj-res">Name, Role &middot; Company</div>
+      </div></article>
+    </div>
+    -->
+
+    <div class="lp-cta">
+      <p class="lp-cta-line">Want something like this running in your business?</p>
+      <a class="lp-btn" href="#book">
+        Book a free consultation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="lp-trust"><span class="lp-stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg></span> <span><b>5.0 on Upwork</b> &middot; &ldquo;an absolute game-changer&rdquo; &middot; verified client review</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ I — INTEREST pt.3 (the framework) ============ -->
+<section class="lp-section" id="framework">
+  <div class="lp-inner">
+    <div class="lp-head">
+      <p class="lp-eyebrow">My framework</p>
+      <h2 class="lp-h2">My 4-step system for turning clicks into booked calls</h2>
+      <p class="lp-sub">The same proven process every time. You always know what happens next.</p>
+    </div>
+
+    <div class="lp-fw">
+
+      <article class="lp-fw-card">
+        <span class="lp-fw-badge">1</span>
+        <div class="lp-fw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5z"/><path d="M14.5 3v5.5H20"/><path d="M8.5 13h7M8.5 16.5h4.5"/></svg></div>
+        <span class="lp-fw-step">Step 1</span>
+        <h3>You Fill One Form</h3>
+        <p>I send you a short intake form. It asks about your offer, your best customers, and your goal.</p>
+        <p>That is all I need to start. No long meetings.</p>
+      </article>
+
+      <article class="lp-fw-card">
+        <span class="lp-fw-badge">2</span>
+        <div class="lp-fw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="14" rx="2"/><path d="M2.5 8.5h19"/><path d="M8 21h8"/></svg></div>
+        <span class="lp-fw-step">Step 2</span>
+        <h3>I Build The Page</h3>
+        <p>Your page is built on the ATIDCOA framework. Every section has one job, in the order that makes people act.</p>
+      </article>
+
+      <article class="lp-fw-card">
+        <span class="lp-fw-badge">3</span>
+        <div class="lp-fw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5h18l-7 8.2V20l-4-2.4v-4.9z"/></svg></div>
+        <span class="lp-fw-step">Step 3</span>
+        <h3>I Filter The Leads</h3>
+        <p>The form asks the right questions, so only qualified leads get through. Time-wasters never reach your calendar.</p>
+        <p>Every answer is mapped into your CRM, like GoHighLevel, with custom fields and automations that drop each lead in the right pipeline stage.</p>
+      </article>
+
+      <article class="lp-fw-card">
+        <span class="lp-fw-badge">4</span>
+        <div class="lp-fw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4.5-9 4.5L3 7.5z"/><path d="M7 10.5V16c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5.5"/></svg></div>
+        <span class="lp-fw-step">Step 4</span>
+        <h3>I Train Your Team</h3>
+        <p>I walk you through the system on a recorded call. You will know where every lead goes and how to change it.</p>
+        <p>You own it from day one. Stuck later? I am here as paid support.</p>
+      </article>
+
+    </div>
+
+    <div class="lp-atid-box">
+      <p class="lp-atid-hd">Inside step 2 &mdash; the ATIDCOA framework</p>
+      <p>Seven sections. Each one moves the visitor one step closer to booking.</p>
+      <ul class="lp-atid">
+        <li><b>A</b><span><strong>Attention.</strong> A headline and image that stop the scroll.</span></li>
+        <li><b>T</b><span><strong>Transformation.</strong> Three simple steps showing how it works.</span></li>
+        <li><b>I</b><span><strong>Interest.</strong> What they get, in plain words.</span></li>
+        <li><b>D</b><span><strong>Desire.</strong> Real reviews and real results.</span></li>
+        <li><b>C</b><span><strong>Compare.</strong> Why you beat the other options.</span></li>
+        <li><b>O</b><span><strong>Objections.</strong> FAQs that answer every doubt.</span></li>
+        <li><b>A</b><span><strong>Action.</strong> One clear ask: book the call.</span></li>
+      </ul>
+    </div>
+
+    <div class="lp-cta">
+      <p class="lp-cta-line">Step one starts on the call. Let&rsquo;s see if it fits your business.</p>
+      <a class="lp-btn" href="#book">
+        Book a free consultation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="lp-cta-note">Free, 30 minutes, and no pressure to buy.</p>
+      <p class="lp-trust"><span class="lp-stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg></span> <span><b>5.0 on Upwork</b> &middot; &ldquo;an absolute game-changer&rdquo; &middot; verified client review</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ T — TRANSFORMATION (how we work) ============ -->
+<section class="lp-section" id="how">
+  <div class="lp-inner">
+    <div class="lp-head">
+      <p class="lp-eyebrow">How we work together</p>
+      <h2 class="lp-h2">From scattered tools to one system that runs itself</h2>
+      <p class="lp-sub">No long onboarding, no 40-page proposal. Three steps, and you know exactly where you stand after the first one.</p>
+    </div>
+
+    <div class="lp-steps">
+      <div class="lp-step">
+        <div class="lp-step-n">1</div>
+        <h3>Book a call</h3>
+        <p>Pick a time that works. Tell me what your business does and what&rsquo;s currently frustrating you. That&rsquo;s the whole ask.</p>
+        <span class="lp-step-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+          Takes 30 seconds
+        </span>
+      </div>
+      <div class="lp-step">
+        <div class="lp-step-n">2</div>
+        <h3>Consultation &amp; audit</h3>
+        <p>We walk through your business together: how leads come in, what happens next, and where hours and revenue leak out. You leave with a prioritised list of what&rsquo;s worth automating first.</p>
+        <span class="lp-step-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          Free &middot; No obligation
+        </span>
+      </div>
+      <div class="lp-step">
+        <div class="lp-step-n">3</div>
+        <h3>Build, launch, hand over</h3>
+        <p>I build it: pages, pipelines, follow-up sequences, integrations and tracking. It goes live, I document it, and you own every piece of it.</p>
+        <span class="lp-step-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Yours to keep
+        </span>
+      </div>
+    </div>
+
+    <div class="lp-cta">
+      <p class="lp-cta-line">Start with step one. It costs you half an hour.</p>
+      <a class="lp-btn" href="#book">
+        Book a free consultation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="lp-cta-note">You&rsquo;ll get an honest answer on whether I can help, including when I can&rsquo;t.</p>
+      <p class="lp-trust"><span class="lp-stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg></span> <span><b>5.0 on Upwork</b> &middot; &ldquo;an absolute game-changer&rdquo; &middot; verified client review</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ I — INTEREST pt.1 (outcomes) ============ -->
+<section class="lp-section" id="services">
+  <div class="lp-inner">
+    <div class="lp-head">
+      <p class="lp-eyebrow">What changes for you</p>
+      <h2 class="lp-h2">Less admin, better leads, decisions you can defend</h2>
+      <p class="lp-sub">Automation isn&rsquo;t the point. Getting your time and your ad budget back is. Here&rsquo;s what that looks like day to day.</p>
+    </div>
+
+    <div class="lp-grid-2">
+      <article class="lp-card">
+        <div class="lp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5h18l-7 8.2V20l-4-2.4v-4.9z"/></svg></div>
+        <h3>Your calendar stops filling with tyre-kickers</h3>
+        <p>Multi-step forms qualify before they book. People who aren&rsquo;t a fit get a helpful answer instead of a slot, and your sales time goes to people who can actually buy.</p>
+      </article>
+      <article class="lp-card">
+        <div class="lp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
+        <h3>Every lead gets a reply in seconds</h3>
+        <p>The moment a form is submitted, the SMS and email sequence starts and the deal lands in the right pipeline stage. Nobody waits until Monday.</p>
+      </article>
+      <article class="lp-card">
+        <div class="lp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a2 2 0 0 1 2-2h2"/><path d="M20 7V5a2 2 0 0 0-2-2h-2"/><path d="M4 17v2a2 2 0 0 0 2 2h2"/><path d="M20 17v2a2 2 0 0 1-2 2h-2"/><path d="M8 12h8"/></svg></div>
+        <h3>Nobody re-types data between tools</h3>
+        <p>Your CRM, forms, spreadsheets, invoicing and job management sync automatically. The hours your team spends on copy-paste go back into the business.</p>
+      </article>
+      <article class="lp-card">
+        <div class="lp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+        <h3>You know which ads make money</h3>
+        <p>Pixel, GTM and conversion events wired correctly from the start, so you scale what works and cut what doesn&rsquo;t, on data rather than a hunch.</p>
+      </article>
+    </div>
+
+    <!-- ---- INTEREST pt.2: capabilities ---- -->
+    <div class="lp-head lp-sub-head">
+      <p class="lp-eyebrow">What I build</p>
+      <h2 class="lp-h2">The pieces behind every one of those outcomes</h2>
+      <p class="lp-sub">Take one piece or the whole system. It&rsquo;s built to fit what you already run.</p>
+    </div>
+
+    <div class="lp-grid-3">
+      <article class="lp-card">
+        <div class="lp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+        <h3>GoHighLevel automation</h3>
+        <p>Pipelines, workflows, SMS and email follow-up, appointment reminders and reactivation campaigns, built to match how you actually sell.</p>
+        <div class="lp-card-tags"><span class="lp-tag">Pipelines</span><span class="lp-tag">SMS</span><span class="lp-tag">Email</span><span class="lp-tag">Workflows</span></div>
+      </article>
+
+      <article class="lp-card">
+        <div class="lp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="14" rx="2"/><path d="M2.5 8.5h19"/><path d="M8 21h8"/></svg></div>
+        <h3>High-converting landing pages</h3>
+        <p>Fast, purpose-built pages with qualifying forms that filter bad leads out before they cost you time. Performance-first, so paid traffic doesn&rsquo;t bounce on a slow load.</p>
+        <div class="lp-card-tags"><span class="lp-tag">Core Web Vitals</span><span class="lp-tag">Lead scoring</span><span class="lp-tag">A/B ready</span></div>
+      </article>
+
+      <article class="lp-card">
+        <div class="lp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 6H15M18 8.5v7M8 8v6.5a2 2 0 0 0 2 2h5"/></svg></div>
+        <h3>Third-party workflow integration</h3>
+        <p>Make.com, n8n, Zapier and Pabbly scenarios that connect whatever you use, including the tools nobody else can get to talk to each other.</p>
+        <div class="lp-card-tags"><span class="lp-tag">Make</span><span class="lp-tag">n8n</span><span class="lp-tag">Zapier</span><span class="lp-tag">Pabbly</span></div>
+      </article>
+
+      <article class="lp-card">
+        <div class="lp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Custom apps &amp; API work</h3>
+        <p>When off-the-shelf runs out, I build it: GHL API apps, web apps on Supabase, deployed to Cloudflare or Vercel. Built with AI tooling, so it ships in days not quarters.</p>
+        <div class="lp-card-tags"><span class="lp-tag">GHL API</span><span class="lp-tag">Supabase</span><span class="lp-tag">Vercel</span><span class="lp-tag">Cloudflare</span></div>
+      </article>
+
+      <article class="lp-card">
+        <div class="lp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20V8"/></svg></div>
+        <h3>Tracking &amp; attribution</h3>
+        <p>Meta Pixel, Google Tag Manager, conversion events and server-side signals set up properly, so your reporting matches reality and your ad platform optimises against it.</p>
+        <div class="lp-card-tags"><span class="lp-tag">Meta Pixel</span><span class="lp-tag">GTM</span><span class="lp-tag">Conversion API</span></div>
+      </article>
+
+      <article class="lp-card">
+        <div class="lp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <h3>AI &amp; tool integration</h3>
+        <p>AI agents and assistants that handle intake, qualification and routing, plus connections into Monday.com, Jobber and Viktor AI so operations run off the same data as sales.</p>
+        <div class="lp-card-tags"><span class="lp-tag">OpenAI</span><span class="lp-tag">Claude</span><span class="lp-tag">Monday.com</span><span class="lp-tag">Jobber</span></div>
+      </article>
+    </div>
+
+    <div class="lp-cta">
+      <p class="lp-cta-line">Not sure which of these you need? That&rsquo;s what the call is for.</p>
+      <a class="lp-btn" href="#book">
+        Book a free consultation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="lp-trust"><span class="lp-stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg></span> <span><b>5.0 on Upwork</b> &middot; &ldquo;an absolute game-changer&rdquo; &middot; verified client review</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ C — COMPARE ============ -->
+<section class="lp-section">
+  <div class="lp-inner">
+    <div class="lp-head">
+      <p class="lp-eyebrow">Why work with me</p>
+      <h2 class="lp-h2">A partner, not a vendor and not a retainer</h2>
+      <p class="lp-sub">You&rsquo;ve probably tried one of the other two. Here&rsquo;s where they tend to fall short.</p>
+    </div>
+
+    <!-- desktop table -->
+    <div class="lp-cmp">
+      <div class="lp-cmp-c lp-cmp-h">What you need</div>
+      <div class="lp-cmp-c lp-cmp-h lp-cmp-us">Working with me</div>
+      <div class="lp-cmp-c lp-cmp-h">Typical freelancer</div>
+      <div class="lp-cmp-c lp-cmp-h">Full agency</div>
+
+      <div class="lp-cmp-c lp-cmp-f">Strategy before anything gets built</div>
+      <div class="lp-cmp-c lp-cmp-us"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+
+      <div class="lp-cmp-c lp-cmp-f">Pages built to filter out bad leads</div>
+      <div class="lp-cmp-c lp-cmp-us"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+
+      <div class="lp-cmp-c lp-cmp-f">Automation and tracking wired together</div>
+      <div class="lp-cmp-c lp-cmp-us"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><span>Extra scope</span></div>
+
+      <div class="lp-cmp-c lp-cmp-f">You talk to the person building it</div>
+      <div class="lp-cmp-c lp-cmp-us"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+
+      <div class="lp-cmp-c lp-cmp-f">You own and can edit everything after</div>
+      <div class="lp-cmp-c lp-cmp-us lp-cmp-us-last"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><span>Sometimes</span></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+
+    <!-- mobile table: two comparison columns so nothing scrolls sideways.
+         Only one of the two is ever displayed, so screen readers never hit both. -->
+    <div class="lp-cmp-m">
+      <div class="lp-cmp-c lp-cmp-h">What you need</div>
+      <div class="lp-cmp-c lp-cmp-h lp-cmp-us">Me</div>
+      <div class="lp-cmp-c lp-cmp-h">Others</div>
+
+      <div class="lp-cmp-c lp-cmp-f">Strategy first</div>
+      <div class="lp-cmp-c lp-cmp-us"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+
+      <div class="lp-cmp-c lp-cmp-f">Filters bad leads</div>
+      <div class="lp-cmp-c lp-cmp-us"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+
+      <div class="lp-cmp-c lp-cmp-f">Tracking included</div>
+      <div class="lp-cmp-c lp-cmp-us"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+
+      <div class="lp-cmp-c lp-cmp-f">Direct access to the builder</div>
+      <div class="lp-cmp-c lp-cmp-us"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><svg class="lp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+
+      <div class="lp-cmp-c lp-cmp-f">You own it after</div>
+      <div class="lp-cmp-c lp-cmp-us lp-cmp-us-last"><svg class="lp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="lp-cmp-c lp-cmp-v"><span>Sometimes</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O — OBJECTIONS (FAQ) ============ -->
+<section class="lp-section lp-faq">
+  <div class="lp-narrow">
+    <div class="lp-head">
+      <p class="lp-eyebrow">Before you book</p>
+      <h2 class="lp-h2">The questions people ask me first</h2>
+      <p class="lp-sub">Straight answers, so the call can start somewhere useful.</p>
+    </div>
+
+    <details>
+      <summary>Do I have to rebuild my whole setup?<span class="lp-plus" aria-hidden="true"></span></summary>
+      <p>No. Most of the time the fastest wins come from fixing the gaps between what you already have: a form that doesn&rsquo;t trigger anything, a pipeline stage nobody moves deals out of, tracking that was never finished. We start there. A full rebuild only happens if the audit says it&rsquo;s genuinely cheaper than patching.</p>
+    </details>
+    <details>
+      <summary>I already use GoHighLevel. Can you work inside it?<span class="lp-plus" aria-hidden="true"></span></summary>
+      <p>That&rsquo;s where I do most of my work. Pipelines, workflows, SMS and email sequences, calendars, forms and custom API apps built on GHL. I&rsquo;ll work in your existing sub-account and leave it documented so your team can maintain it.</p>
+    </details>
+    <details>
+      <summary>How long does it take?<span class="lp-plus" aria-hidden="true"></span></summary>
+      <p>A landing page with a qualifying funnel is usually live in days. A full lead system (pages, pipelines, follow-up, integrations and tracking) typically runs a couple of weeks depending on how many tools have to be connected. You get a scope and a timeline in writing after the consultation, before anything starts.</p>
+    </details>
+    <details>
+      <summary>What does it cost?<span class="lp-plus" aria-hidden="true"></span></summary>
+      <p>It depends entirely on scope, which is exactly why the consultation is free and comes first. You&rsquo;ll get a fixed price for a defined build, with no open-ended hourly billing and no surprise invoices.</p>
+    </details>
+    <details>
+      <summary>Do I own everything when we&rsquo;re done?<span class="lp-plus" aria-hidden="true"></span></summary>
+      <p>Yes. Everything is built in your accounts, on your domains, under your logins. You keep the pages, the workflows, the integrations and the documentation. Nothing is held hostage on my side.</p>
+    </details>
+    <details>
+      <summary>I&rsquo;m not sure what should be automated yet. Is it too early to talk?<span class="lp-plus" aria-hidden="true"></span></summary>
+      <p>That&rsquo;s the most common reason people book. The consultation is a working session, not a sales call. We map how leads move through your business and find where the time and money are actually going. You leave with a prioritised list whether or not you hire me.</p>
+    </details>
+
+    <div class="lp-cta">
+      <p class="lp-cta-line">Still deciding? The call is free either way.</p>
+      <a class="lp-btn" href="#book">
+        Book a free consultation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="lp-trust"><span class="lp-stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg></span> <span><b>5.0 on Upwork</b> &middot; &ldquo;an absolute game-changer&rdquo; &middot; verified client review</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A — ACTION (booking) ============ -->
+<section class="lp-section lp-book" id="book">
+  <div class="lp-narrow">
+    <p class="lp-eyebrow">Step one</p>
+    <h2 class="lp-h2">Let&rsquo;s find out what&rsquo;s worth automating</h2>
+    <p class="lp-sub">Thirty minutes. We look at how leads reach you and what happens after. You leave with a plan you could hand to anyone, including someone who isn&rsquo;t me.</p>
+
+    <!-- Calendly facade: renders instantly, loads the real iframe on first click.
+         Zero third-party requests until the visitor asks for them. -->
+    <div class="lp-cal" id="cal">
+      <button class="lp-cal-facade" type="button" id="cal-open">
+        <span class="lp-cal-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><polyline points="9 14.5 11 16.5 15 12.5"/></svg>
+        </span>
+        <h3>Pick a time that works for you</h3>
+        <p>Opens my live calendar &middot; No card, no commitment</p>
+        <span class="lp-cal-fake">
+          Open the calendar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </button>
+    </div>
+
+    <p class="lp-trust"><span class="lp-stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg></span> <span><b>5.0 on Upwork</b> &middot; &ldquo;an absolute game-changer&rdquo; &middot; verified client review</span></p>
+
+    <p class="lp-book-alt">
+      Prefer email? Reach me at <a href="mailto:jamesachame@gmail.com">jamesachame@gmail.com</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="lp-foot">
+  <div class="lp-foot-in">
+    <span>&copy; 2026 James Achame &middot; AI Automation &middot; Landing Pages &middot; Funnel Strategy</span>
+    <span class="lp-foot-links">
+      <a href="mailto:jamesachame@gmail.com">jamesachame@gmail.com</a>
+      <a href="#book">Book a call</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIG — the only values you need to change.
+   ============================================================ */
+var CALENDLY_URL  = '';                 /* e.g. 'https://calendly.com/your-name/consultation' */
+var CONTACT_EMAIL = 'jamesachame@gmail.com';  /* also update the two mailto: links in the markup    */
+
+(function(){
+  'use strict';
+
+  /* ---- Calendly click-to-load facade ----
+     Nothing from calendly.com is requested until the visitor clicks, which keeps
+     LCP and TBT clean. We use the plain iframe embed rather than widget.js, so
+     there's no third-party script on the page at all. */
+  var facade = document.getElementById('cal-open');
+  var host   = document.getElementById('cal');
+  if (!facade || !host) return;
+
+  facade.addEventListener('click', function(){
+    if (!CALENDLY_URL){
+      /* Not configured yet: fall back to email rather than showing a broken frame. */
+      window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' +
+        encodeURIComponent('Consultation request');
+      return;
+    }
+    var sep = CALENDLY_URL.indexOf('?') > -1 ? '&' : '?';
+    var iframe = document.createElement('iframe');
+    iframe.src = CALENDLY_URL + sep + 'hide_gdpr_banner=1&embed_domain=' +
+                 encodeURIComponent(location.hostname) + '&embed_type=Inline';
+    iframe.title = 'Book a consultation';
+    iframe.loading = 'lazy';
+    iframe.setAttribute('frameborder', '0');
+    host.replaceChild(iframe, facade);
+  });
+})();
+</script>
+
+</body>
+</html>
